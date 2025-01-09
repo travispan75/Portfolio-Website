@@ -4,7 +4,6 @@ import { socialInfo } from '@/Data/data';
 import * as Tooltip from '@radix-ui/react-tooltip';
 import {
   MotionValue,
-  animate,
   motion,
   useMotionValue,
   useSpring,
