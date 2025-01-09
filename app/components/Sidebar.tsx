@@ -1,10 +1,13 @@
+"use client"
 import { FaRegFile } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
 import { FiGithub } from "react-icons/fi";
 import { FaInstagram } from "react-icons/fa";
+import SlideInLeft from "./SlideInLeft";
 
 const Sidebar = () => {
   return (
+    <SlideInLeft>
     <div style={{ backgroundColor: 'rgb(33, 33, 33)' }} className="fixed top-1/2 left-0 transform -translate-y-1/2 pl-3 pr-3 pt-4 pb-4 ml-12 z-10 rounded-3xl">
         <div className="flex flex-col space-y-5">
             <div className="flex items-center justify-center w-10 h-10 rounded-full p-3" style={{ backgroundColor: 'rgb(60, 60, 60)' }}>
@@ -21,6 +24,7 @@ const Sidebar = () => {
             </div>
         </div>
     </div>
+    </SlideInLeft>
   );
 };
 

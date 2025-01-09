@@ -3,11 +3,11 @@ import Link from "next/link";
 
 const Navbar = () => {
 	return (
-		<nav className="fixed top-0 w-full h-[12vh] z-10 bg-black">
+		<nav className="fixed top-0 w-full h-[12vh] z-10 bg-black bg-opacity-50 backdrop-blur-lg">
 			<div className="flex items-center justify-between h-full w-[95%] sm:w-[90%] xl:w-[80%] mx-auto">
 				<Link href="/">
 					<Image
-						src="/images/placeholder.png"
+						src="/images/govcan.jpg"
 						alt="Logo"
 						width={60}
 						height={60}

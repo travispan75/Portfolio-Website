@@ -6,7 +6,6 @@ import Sidebar from "./components/Sidebar";
 const HomePage = () => {
   return (
     <div className="flex">
-      <Sidebar/>
       <main className="flex-1">
         <Hero/>
         <Experience/>

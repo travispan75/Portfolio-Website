@@ -1,3 +1,4 @@
+"use client"
 import { motion } from "framer-motion";
 
 interface FadeUpProps {
@@ -7,14 +8,13 @@ interface FadeUpProps {
     distance?: number;
 }
 
-const FadeUp: React.FC<FadeUpProps> = ({children, duration = 0.6, delay = 0, distance = 20}) => {
+const FadeUp: React.FC<FadeUpProps> = ({children, duration = 0.5, delay = 0, distance = 20}) => {
     return (
         <motion.div
-        initial={{ opacity: 0, transform: `translateY(${distance}px)` }}
-        animate={{ opacity: 1, transform: 'translateY(0px)' }}
+        initial={{ opacity: 0, translateY: distance }}
+        whileInView={{ opacity: 1, translateY: 0 }}
         transition={{ duration, delay, ease: "easeOut" }}
-        style={{ visibility: 'visible' }} // This ensures the element maintains its space
-        >
+        viewport={{ once: true, amount: 0.2 }}>
             {children}
         </motion.div>
     );
