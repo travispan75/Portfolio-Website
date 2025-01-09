@@ -3,7 +3,7 @@ import { Sora } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
-import Dock from "./components/test";
+import Dock from "./components/Sidebar";
 
 const sora = Sora({
   weight: ['100', '200', '300', '400', '500', '600', '700', '800'],
