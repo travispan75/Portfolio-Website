@@ -31,7 +31,7 @@ export const experienceInfo: ExperienceInfo[] = [
 
 export interface SocialInfo {
   name: string;
-  icon: React.ElementType;
+  icon: React.ComponentType<{ className: string }>;
   action: string;
 }
 
@@ -51,6 +51,6 @@ export interface ProjectsInfo {
 export const projectsInfo: ProjectsInfo[] = [
   { name: "PokeMetrics", img_src: "/images/", link: "https://github.com/travispan75/Video-Game-Stats-Analyzer" },
   { name: "Memory Melody", img_src: "/images/", link: "https://github.com/travispan75/Video-Game-Stats-Analyzer" },
-  { name: "PokeMetrics", img_src: "/images/", link: "https://github.com/travispan75/Video-Game-Stats-Analyzer" },
+  { name: "UW Orbital Design Team", img_src: "/images/", link: "https://github.com/travispan75/Video-Game-Stats-Analyzer" },
   { name: "Safe Portfolio Generator", img_src: "/images/", link: "https://github.com/travispan75/Video-Game-Stats-Analyzer" }
 ];
