@@ -4,14 +4,15 @@ import Projects from "./components/Projects";
 
 const HomePage = () => {
   return (
-    <div className="flex">
+    <div className="flex flex-col">
       <main className="flex-1">
-        <Hero/>
-        <Experience/>
-        <Projects/>
+        <Hero />
+        <Experience />
+        <Projects />
       </main>
     </div>
   );
 }
+
  
 export default HomePage;

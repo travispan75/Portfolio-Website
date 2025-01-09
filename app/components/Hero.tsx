@@ -2,7 +2,7 @@ import FadeUp from "./FadeUp";
 
 const Hero = () => {
     return (
-        <section className="flex items-center justify-between h-screen w-full text-white mb-[60px]" style={{ position: "relative", paddingRight: '300px', paddingLeft: '360px' }}>
+        <section className="flex items-center justify-center h-screen w-full text-white mb-[60px]" style={{ position: "relative" }}>
             <FadeUp>
                 <div className="text-left max-w-lg mr-8">
                     <h1 className="text-4xl font-bold" style={{ color: 'rgb(221, 181, 81)' }}>Travis Pan</h1>
@@ -14,7 +14,7 @@ const Hero = () => {
                 </div>
             </FadeUp>
             <div className="relative w-[400px] h-[400px]">
-                <img src="/images/placeholder.png" alt="" />
+                <img src="/images/placeholder.png" alt="Profile Image" className="object-contain w-full h-full" />
             </div>
         </section>
     );

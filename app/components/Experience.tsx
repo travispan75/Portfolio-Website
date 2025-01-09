@@ -15,20 +15,14 @@ const Experience = () => {
                     <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[2px] h-full bg-gradient-to-b from-yellow-400 via-red-500 via-purple-500 to-blue-500"></div>
                     <div className="max-w-[1200px] mx-auto">
                         {experienceInfo.map((exp, index) => (
-                            <div
-                                key={index}
-                                className={`flex items-center mb-12 ${index % 2 === 0 ? 'justify-start pr-[120px]' : 'justify-end pl-[120px]'}`}
-                            >
-                                <div
-                                    className={`w-1/2 py-[10px] ${index % 2 === 0 ? 'pl-[80px]' : 'pr-[80px] text-right'} rounded-lg text-white`}
-                                >
+                            <div key={index} className={`flex items-center mb-12 ${index % 2 === 0 ? 'justify-start pr-[120px]' : 'justify-end pl-[120px]'}`}>
+                                <div className={`w-1/2 py-[10px] ${index % 2 === 0 ? 'pl-[80px]' : 'pr-[80px] text-right'} rounded-lg text-white`}>
                                     <div className="relative px-[30px] py-[30px] rounded-lg" style={{ backgroundColor: 'rgb(33, 33, 33)' }}>
                                         <div
                                             className={index % 2 === 0
                                                 ? "absolute w-[55px] h-[55px] rounded-full bg-white flex items-center justify-center right-[-88px] top-[13px]"
                                                 : "absolute w-[55px] h-[55px] rounded-full bg-white flex items-center justify-center left-[-88px] top-[13px]"
-                                            }
-                                        >
+                                            }>
                                             <Image
                                                 src={exp.img_src}
                                                 alt={exp.img_src}
