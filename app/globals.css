@@ -18,6 +18,10 @@ html, body {
     box-sizing: inherit;
 }
 
+img {
+    user-select: none;
+}
+
 ::selection {
     color: rgb(205, 205, 205);
     background-color: rgb(89, 89, 89);

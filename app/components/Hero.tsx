@@ -13,7 +13,7 @@ const Hero = () => {
                     </p>
                 </div>
             </FadeUp>
-            <div className="relative w-[250px] h-[250px] lg:w-[400px] lg:h-[400px]">
+            <div className="relative w-full max-w-[400px] aspect-[1/1]">
                 <img src="/images/placeholder.png" alt="Profile Image" className="object-contain w-full h-full" />
             </div>
         </section>
