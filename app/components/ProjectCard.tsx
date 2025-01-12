@@ -2,7 +2,6 @@
 
 import { useRef, useState } from "react";
 import { motion, useMotionTemplate, useMotionValue, useSpring } from "framer-motion";
-import { FiMousePointer } from "react-icons/fi";
 import FadeUp from "./FadeUp";
 import FadeDown from "./FadeDown";
 
