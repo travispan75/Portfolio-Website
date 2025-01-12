@@ -7,7 +7,7 @@ const Navbar = () => {
 			<div className="flex items-center justify-between h-full w-[95%] sm:w-[90%] xl:w-[80%] mx-auto">
 				<Link href="/">
 					<Image
-						src="/images/govcan.jpg"
+						src="/images/logo.png"
 						alt="Logo"
 						width={60}
 						height={60}

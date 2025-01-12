@@ -30,18 +30,16 @@ const HALF_ROTATION_RANGE = 32.5 / 2;
 
 const TiltCard = ({ name, img_src, link, desc, icon }: TiltCardProps) => {
   const [isHovered, setIsHovered] = useState(false);
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement>(null);
 
   const x = useMotionValue(0);
   const y = useMotionValue(0);
-  const yShift = useMotionValue(0);
 
   const xSpring = useSpring(x);
   const ySpring = useSpring(y);
 
   const transform = useMotionTemplate`rotateX(${xSpring}deg) rotateY(${ySpring}deg)`;
-
-  const handleMouseMove = (e) => {
+  const handleMouseMove = (e: React.MouseEvent) => {
     if (!ref.current) return [0, 0];
 
     const rect = ref.current.getBoundingClientRect();
@@ -57,7 +55,6 @@ const TiltCard = ({ name, img_src, link, desc, icon }: TiltCardProps) => {
 
     x.set(rX);
     y.set(rY);
-    yShift.set(-75);
   };
 
   const handleMouseEnter = () => {
