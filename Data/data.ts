@@ -2,6 +2,10 @@ import { FaRegFile } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
 import { FiGithub } from "react-icons/fi";
 import { FaInstagram } from "react-icons/fa";
+import { TbPokeball } from "react-icons/tb";
+import { IoIosMusicalNotes } from "react-icons/io";
+import { MdSatelliteAlt } from "react-icons/md";
+import { RiStockLine } from "react-icons/ri";
 
 export interface HeroInfo {
   name: string;
@@ -46,11 +50,13 @@ export interface ProjectsInfo {
   name: string;
   img_src: string;
   link: string;
+  desc: string;
+  icon: React.ComponentType<{ className: string }>;
 }
 
 export const projectsInfo: ProjectsInfo[] = [
-  { name: "PokeMetrics", img_src: "/images/", link: "https://github.com/travispan75/Video-Game-Stats-Analyzer" },
-  { name: "Memory Melody", img_src: "/images/", link: "https://github.com/travispan75/Video-Game-Stats-Analyzer" },
-  { name: "UW Orbital Design Team", img_src: "/images/", link: "https://github.com/travispan75/Video-Game-Stats-Analyzer" },
-  { name: "Safe Portfolio Generator", img_src: "/images/", link: "https://github.com/travispan75/Video-Game-Stats-Analyzer" }
+  { name: "PokeMetrics", icon: TbPokeball, img_src: "/images/showdown.png", link: "https://github.com/travispan75/Video-Game-Stats-Analyzer", desc: "Player statistics analyzer and visualizer for Pokemon Showdown." },
+  { name: "Memory Melody", icon: IoIosMusicalNotes, img_src: "/images/memory-melody.png", link: "https://github.com/travispan75/Memory-Melody", desc: "Nostalgia playlist generator for Spotify" },
+  { name: "UW Orbital Design Team", icon: MdSatelliteAlt, img_src: "/images/uw-orbital.png", link: "https://github.com/travispan75/OBC-Firmware-Onboarding", desc: "Temperature override firmware for UW Orbital satellite" },
+  { name: "Safe Portfolio Generator", icon: RiStockLine, img_src: "/images/safe-portfolio.png", link: "https://github.com/travispan75/Video-Game-Stats-Analyzer", desc: "Safe portfolio generator" }
 ];

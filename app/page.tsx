@@ -1,5 +1,6 @@
 import Experience from "./components/Experience";
 import Hero from "./components/Hero";
+import ProjectCard from "./components/ProjectCard";
 import Projects from "./components/Projects";
 
 const HomePage = () => {
