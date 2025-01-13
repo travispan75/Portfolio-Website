@@ -12,15 +12,19 @@ const Projects = () => {
                     <h2 className="text-white text-center text-3xl font-bold">PROJECTS</h2>
                 </div>
             </FadeUp>
-                <div className="flex flex-wrap justify-center gap-12 px-48">
-                    {projectsInfo.map((project, index) => (
-                        <div key={index} className="flex justify-center items-center w-1/2 lg:w-1/3" style={{ color: "white" }}>
-                            <FadeUp delay={(index % 2 === 0) ? 0.3 : 0.6}>
-                                <ProjectCard name={project.name} img_src={project.img_src} link={project.link} desc={project.desc} icon={project.icon}></ProjectCard>
-                            </FadeUp>
-                        </div>
-                    ))}
-                </div>
+            <div className="flex flex-wrap justify-center gap-8 mx-auto max-w-[800px] overflow-hidden text-white">
+                {projectsInfo.map((project, index) => (
+                    <FadeUp key={index} delay={index % 2 === 0 ? 0.3 : 0.6}>
+                        <ProjectCard 
+                            name={project.name} 
+                            img_src={project.img_src} 
+                            link={project.link} 
+                            desc={project.desc} 
+                            icon={project.icon} 
+                        />
+                    </FadeUp>
+                ))}
+            </div>
         </div>
     );
 }

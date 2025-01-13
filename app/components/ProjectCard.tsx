@@ -79,7 +79,7 @@ const TiltCard = ({ name, img_src, link, desc, icon }: TiltCardProps) => {
       transformStyle: "preserve-3d",
       transform,
     }}
-    className="relative h-96 w-96 rounded-xl bg-gradient-to-br from-indigo-300 to-violet-300">
+    className="relative h-[300px] w-[300px] custom2:h-96 custom2:w-96  rounded-xl bg-gradient-to-br from-indigo-300 to-violet-300">
       <a
       href={link} target="_blank" rel="noopener noreferrer"
       style={{

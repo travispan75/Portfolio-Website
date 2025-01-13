@@ -6,6 +6,13 @@ export default {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  theme: {},
+  theme: {
+    extend: {
+      screens: {
+        'custom': '1150px',
+        'custom2': '500px'
+      }
+    }
+  },
   plugins: [],
 } satisfies Config;

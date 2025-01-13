@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Sora } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
-import Dock from "./components/Sidebar";
+import ResponsiveBar from "./components/ResponsiveBar";
 
 const sora = Sora({
   weight: ['100', '200', '300', '400', '500', '600', '700', '800'],
@@ -21,10 +21,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </head>
       <body className={sora.className}>
         <Navbar/>
-        <Dock/>
-        <div style={{ marginTop: "22vh" }}>
+        <ResponsiveBar/>
+        <div className="pt-[20vh]">
           {children}
         </div>
       </body>

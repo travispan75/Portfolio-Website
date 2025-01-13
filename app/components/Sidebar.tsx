@@ -15,7 +15,7 @@ const SPRING = {
     damping: 12,
 };
 
-const APPS = socialInfo
+const APPS = socialInfo;
 
 export default function Dock() {
     const mouseTop = useMotionValue(-Infinity);
@@ -45,7 +45,7 @@ export default function Dock() {
                     mouseTop.set(-Infinity);
                     mouseBottom.set(-Infinity);
                 }}
-                className="fixed top-1/2 left-0 transform -translate-y-1/2 ml-12 z-10 flex flex-col justify-center items-center gap-4 px-4 py-4 rounded-2xl"
+                className={"fixed top-1/2 left-0 transform -translate-y-1/2 translate-x-[30px] z-10 flex flex-col justify-center items-center gap-4 px-4 py-4 rounded-2xl"}
                 style={{
                     height: dockHeight,
                     width: '70px',
