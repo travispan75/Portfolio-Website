@@ -3,7 +3,7 @@ import Scene from "./TechStack";
 
 const Hero = () => {
     return (
-        <div className="relative flex flex-col lg:flex-row items-center justify-center mb-[250px] lg:pr-0 lg:pl-24 px-8 overflow-hidden gap-12">
+        <div className="relative flex flex-col lg:flex-row items-center justify-center mb-[250px] px-8 lg:pr-0 lg:pl-24 overflow-hidden gap-12">
             <FadeUp>
                 <div className="text-center lg:text-left max-w-lg lg:mr-8 mb-8 lg:mb-0">
                     <h1 className="text-3xl sm:text-4xl font-bold text-yellow-500">Travis Pan</h1>
@@ -14,7 +14,7 @@ const Hero = () => {
                     </p>
                 </div>
             </FadeUp>
-            <div className="w-0 h-0 lg:w-[500px] sm:h-[520px]">
+            <div className="hidden lg:w-[38%] lg:h-[520px] lg:block">
                 <Scene />
             </div>
         </div>
