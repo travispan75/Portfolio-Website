@@ -49,7 +49,7 @@ const FallingBlock: React.FC<{ position: [number, number, number]; rotationVal: 
         }
     });
 
-    const texture = useMemo(() => useLoader(THREE.TextureLoader, img_src), [img_src]);
+    const texture = useLoader(THREE.TextureLoader, img_src);
 
     const darkenHex = (hex: string, percent: number) => {
         let r = parseInt(hex.slice(1, 3), 16);
