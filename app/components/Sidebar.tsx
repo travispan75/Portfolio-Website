@@ -109,8 +109,8 @@ function AppIcon({
             window.open(action, "_blank");
         } else if (action === "download resume") {
             const link = document.createElement("a");
-            link.href = "/path/to/your/resume.pdf";
-            link.download = "resume.pdf";
+            link.href = "/resume.pdf";
+            link.download = "travis-pan-resume.pdf";
             link.click();
         }
     };

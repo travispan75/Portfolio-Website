@@ -1,16 +1,17 @@
 'use client'
 
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect, useMemo } from 'react';
 import { Canvas, useFrame, useLoader } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei';
-import * as THREE from 'three'
+// import { OrbitControls } from '@react-three/drei';
 import { techStackInfo } from '@/Data/data';
+import * as THREE from 'three';
 
 const FallingBlock: React.FC<{ position: [number, number, number]; rotationVal: [number, number, number]; delay: number; colour: string; img_src: string; }> = ({ position, rotationVal, delay, colour, img_src }) => {
     const ref = useRef<THREE.Group>(null);
     const [falling, setFalling] = useState(false);
     const [yPos, setYPos] = useState(position[1] + 5);
     const [startTime, setStartTime] = useState<number | null>(null);
+    const [animationCompleted, setAnimationCompleted] = useState(false);
     let randDelay = 0;
 
     if (delay > 0) {
@@ -31,12 +32,11 @@ const FallingBlock: React.FC<{ position: [number, number, number]; rotationVal: 
     };
 
     useFrame(() => {
-        if (falling && ref.current && startTime !== null) {
+        if (falling && ref.current && startTime !== null && !animationCompleted) {
             const timeElapsed = (Date.now() - startTime) / 1000;
             const progress = Math.min(timeElapsed / 2, 1);
 
             const easing = easeInOut(progress);
-
             const newY = position[1] + (yPos - position[1]) * (1 - easing);
             setYPos(newY);
             ref.current.position.y = newY;
@@ -44,9 +44,12 @@ const FallingBlock: React.FC<{ position: [number, number, number]; rotationVal: 
             if (newY <= position[1]) {
                 setYPos(position[1]);
                 setFalling(false);
+                setAnimationCompleted(true);
             }
         }
-    })
+    });
+
+    const texture = useMemo(() => useLoader(THREE.TextureLoader, img_src), [img_src]);
 
     const darkenHex = (hex: string, percent: number) => {
         let r = parseInt(hex.slice(1, 3), 16);
@@ -61,6 +64,38 @@ const FallingBlock: React.FC<{ position: [number, number, number]; rotationVal: 
         return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
     };
 
+    if (animationCompleted) {
+        return (
+            <group rotation={rotationVal} ref={ref} position={[position[0], position[1], position[2]]}>
+                <mesh>
+                    <boxGeometry args={[1, 0.65, 1]} />
+                    <meshStandardMaterial color={colour} />
+                </mesh>
+                <mesh position={[0, 0, 0.505]}>
+                    <planeGeometry args={[0.45, 0.45]} />
+                    <meshBasicMaterial map={texture} transparent />
+                </mesh>
+
+                <mesh position={[-0.35, 0.65 / 2, -0.35]}>
+                    <cylinderGeometry args={[0.1, 0.1, 0.2]} />
+                    <meshStandardMaterial color={darkenHex(colour, 0.12)} />
+                </mesh>
+                <mesh position={[0.35, 0.65 / 2, -0.35]}>
+                    <cylinderGeometry args={[0.1, 0.1, 0.2]} />
+                    <meshStandardMaterial color={darkenHex(colour, 0.12)} />
+                </mesh>
+                <mesh position={[-0.35, 0.65 / 2, 0.35]}>
+                    <cylinderGeometry args={[0.1, 0.1, 0.2]} />
+                    <meshStandardMaterial color={darkenHex(colour, 0.12)} />
+                </mesh>
+                <mesh position={[0.35, 0.65 / 2, 0.35]}>
+                    <cylinderGeometry args={[0.1, 0.1, 0.2]} />
+                    <meshStandardMaterial color={darkenHex(colour, 0.12)} />
+                </mesh>
+            </group>
+        );
+    }
+
     return (
         <group rotation={rotationVal} ref={ref} position={[position[0], yPos, position[2]]}>
             <mesh>
@@ -69,7 +104,7 @@ const FallingBlock: React.FC<{ position: [number, number, number]; rotationVal: 
             </mesh>
             <mesh position={[0, 0, 0.505]}>
                 <planeGeometry args={[0.45, 0.45]} />
-                <meshBasicMaterial map={useLoader(THREE.TextureLoader, img_src)} transparent />
+                <meshBasicMaterial map={texture} transparent />
             </mesh>
 
             <mesh position={[-0.35, 0.65 / 2, -0.35]}>
@@ -89,18 +124,17 @@ const FallingBlock: React.FC<{ position: [number, number, number]; rotationVal: 
                 <meshStandardMaterial color={darkenHex(colour, 0.12)} />
             </mesh>
         </group>
-    )
-}
-
-const LogCameraPosition = () => {
-    useFrame((state) => {
-        // Access the camera's position
-        const { x, y, z } = state.camera.position;
-        console.log(`Camera Position: x=${x.toFixed(2)}, y=${y.toFixed(2)}, z=${z.toFixed(2)}`);
-    });
-
-    return null; // This component doesn't render anything
+    );
 };
+
+// const LogCameraPosition = () => {
+//         useFrame((state) => {
+//             const { x, y, z } = state.camera.position;
+//             console.log(`Camera Position: x=${x.toFixed(2)}, y=${y.toFixed(2)}, z=${z.toFixed(2)}`);
+//         });
+    
+//         return null;
+// };
 
 const Scene: React.FC = () => {
     // const cameraRef = useRef();
@@ -110,21 +144,12 @@ const Scene: React.FC = () => {
     //         cameraRef.current.lookAt(0, 0, 0);
     //     }
     // }, []);
-
     return (
         <div className="w-full h-full">
-            <Canvas camera={{ position: [3.95, 2.26, 3.63], fov: 50 }}>
-                <LogCameraPosition />
+            <Canvas camera={{ position: [3.95, 2.26, 3.63], fov: 50 }} onCreated={({ camera }) => camera.lookAt(0, 1.2, 0)}>
                 <ambientLight intensity={1} />
-                <directionalLight
-                    castShadow
-                    position={[7, 2, 3]}
-                    intensity={0.8}
-                    shadow-mapSize-width={1024}
-                    shadow-mapSize-height={1024}
-                />
+                <directionalLight castShadow position={[7, 2, 3]} intensity={0.8} shadow-mapSize-width={512} shadow-mapSize-height={512}/>
                 <pointLight position={[10, 10, 10]} />
-
                 {Array.from({ length: 5 }).map((_, index) => (
                     <FallingBlock key={index} rotationVal={[0, Math.PI / 5, 0]} position={[0, index * 0.65, 0]} delay={index * 400} colour={colourArr[index]} img_src={techStackInfo[index].img_src} />
                 ))}
@@ -134,11 +159,10 @@ const Scene: React.FC = () => {
                 {Array.from({ length: 3 }).map((_, index) => (
                     <FallingBlock key={index} rotationVal={[0, Math.PI / 8, 0]} position={[1.5, index * 0.65, -0.5]} delay={index * 400 + 1.7 * 400} colour={colourArr[index]} img_src={techStackInfo[index + 8].img_src} />
                 ))}
-
-                <OrbitControls target={[0, 1.2, 0]}/>
             </Canvas>
+            {/* <OrbitControls target={[0, 1.2, 0]}/> */}
         </div>
-    )
-}
+    );
+};
 
 export default Scene;

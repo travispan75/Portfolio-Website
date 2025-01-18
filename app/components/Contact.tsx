@@ -8,6 +8,9 @@ const Contact = () => {
                     <h2 className="text-white text-center text-3xl font-bold">CONTACT INFO</h2>
                 </div>
             </FadeUp>
+            <div>
+                
+            </div>
         </div>
     );
 }

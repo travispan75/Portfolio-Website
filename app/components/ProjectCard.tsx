@@ -93,7 +93,7 @@ const TiltCard = ({ name, img_src, link, desc, icon }: TiltCardProps) => {
           <div style={{ transform: "translateZ(75px)" }}>
             <motion.p
             className="relative text-center text-2xl font-bold"
-            animate={{ y: isHovered ? -70 : 0 }}
+            animate={{ y: isHovered ? -90 : 0 }}
             transition={{
               type: "spring",
               stiffness: 100,
@@ -105,7 +105,7 @@ const TiltCard = ({ name, img_src, link, desc, icon }: TiltCardProps) => {
           <div style={{ transform: "translateZ(50px)" }}>
             <motion.p 
             className="relative text-center text-2xl font-bold"
-            animate={{ y: isHovered ? -70 : 0 }}
+            animate={{ y: isHovered ? -90 : 0 }}
             transition={{
               type: "spring",
               stiffness: 100,
@@ -114,19 +114,21 @@ const TiltCard = ({ name, img_src, link, desc, icon }: TiltCardProps) => {
               {name}
             </motion.p>
           </div>
+          <div className="absolute inset-0 flex items-center justify-center text-center px-8 mt-8" style={{ transform: "translateZ(25px)" }}>
           {isHovered ? 
-            <div style={{ transform: "translateZ(25px)" }}>
-              <FadeUp duration={0.3} inView={false}>
+            <div>
+              <FadeUp duration={0.4} inView={false}>
                 <h1>{desc}</h1> 
               </FadeUp>
             </div>
           :
-            <div style={{ transform: "translateZ(25px)" }}>
-              <FadeDown duration={0.3} inView={false}>
+            <div>
+              <FadeDown duration={0.2} inView={false}>
                 <h1>{desc}</h1> 
               </FadeDown>
             </div>
           }
+          </div>
       </a>
     </motion.div>
   );

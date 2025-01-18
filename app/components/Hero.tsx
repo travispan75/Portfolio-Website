@@ -1,9 +1,21 @@
+"use client"
+
 import FadeUp from "./FadeUp";
 import Scene from "./TechStack";
+import { useState, useEffect } from 'react';
 
 const Hero = () => {
+    const [isSceneVisible, setIsSceneVisible] = useState(false);
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setIsSceneVisible(true);
+        }, 600);
+
+        return () => clearTimeout(timer);
+    }, []);
     return (
-        <div className="relative flex flex-col lg:flex-row items-center justify-center mb-[250px] px-8 lg:pr-0 lg:pl-24 overflow-hidden gap-12">
+        <div className="relative flex flex-col lg:flex-row items-center justify-center mb-[80px] lg:mb-[250px] px-8 lg:pr-0 lg:pl-24 overflow-hidden gap-12">
             <FadeUp>
                 <div className="text-center lg:text-left max-w-lg lg:mr-8 mb-8 lg:mb-0">
                     <h1 className="text-3xl sm:text-4xl font-bold text-yellow-500">Travis Pan</h1>
@@ -15,7 +27,7 @@ const Hero = () => {
                 </div>
             </FadeUp>
             <div className="hidden lg:w-[38%] lg:h-[520px] lg:block">
-                <Scene />
+                {isSceneVisible && <Scene />}
             </div>
         </div>
     );
