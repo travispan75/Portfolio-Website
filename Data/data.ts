@@ -60,3 +60,21 @@ export const projectsInfo: ProjectsInfo[] = [
   { name: "UW Orbital Design Team", icon: MdSatelliteAlt, img_src: "/images/uw-orbital.png", link: "https://github.com/travispan75/OBC-Firmware-Onboarding", desc: "Temperature override firmware for UW Orbital satellite" },
   { name: "Safe Portfolio Generator", icon: RiStockLine, img_src: "/images/safe-portfolio.png", link: "https://github.com/travispan75/Video-Game-Stats-Analyzer", desc: "Safe portfolio generator" }
 ];
+
+export interface techStackInfo {
+  img_src: string;
+}
+
+export const techStackInfo: techStackInfo[] = [
+  { img_src: "images/graphql.png" },
+  { img_src: "images/mongodb.png" },
+  { img_src: "images/mysql.svg" },
+  { img_src: "images/express-logo.svg" },
+  { img_src: "images/nodejs.svg" },
+  { img_src: "images/atom.png" },
+  { img_src: "images/nextjs.svg" },
+  { img_src: "images/typescript.png" },
+  { img_src: "images/aws-logo.svg" },
+  { img_src: "images/git-logo.png" },
+  { img_src: "images/python.png" }
+]

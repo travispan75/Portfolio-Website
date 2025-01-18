@@ -79,13 +79,13 @@ const TiltCard = ({ name, img_src, link, desc, icon }: TiltCardProps) => {
       transformStyle: "preserve-3d",
       transform,
     }}
-    className="relative h-[300px] w-[300px] custom2:h-96 custom2:w-96  rounded-xl bg-gradient-to-br from-indigo-300 to-violet-300">
+    className="relative h-[300px] w-[300px] custom2:h-96 custom2:w-96  rounded-xl bg-gradient-to-br from-yellow-200 to-indigo-300">
       <a
       href={link} target="_blank" rel="noopener noreferrer"
       style={{
         transform: "translateZ(75px)",
         transformStyle: "preserve-3d",
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${img_src})`,
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(${img_src})`,
         backgroundSize: "cover",
         backgroundPosition: "center"
       }}

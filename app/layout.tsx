@@ -27,7 +27,7 @@ export default function RootLayout({
       <body className={sora.className}>
         <Navbar/>
         <ResponsiveBar/>
-        <div className="pt-[20vh]">
+        <div className="pt-[12vh]">
           {children}
         </div>
       </body>
