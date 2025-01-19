@@ -55,7 +55,7 @@ export interface ProjectsInfo {
 }
 
 export const projectsInfo: ProjectsInfo[] = [
-  { name: "PokeMetrics", icon: TbPokeball, img_src: "/images/showdown.png", link: "https://github.com/travispan75/Video-Game-Stats-Analyzer", desc: "Player statistics analyzer and visualizer for Pokemon Showdown. Built using MERN stack with python for backend data analysis." },
+  { name: "PokeMetrics", icon: TbPokeball, img_src: "/images/showdown.png", link: "https://github.com/travispan75/Video-Game-Stats-Analyzer", desc: "Player statistics analyzer and visualizer for Pokemon Showdown. Built using MERN stack with Python for backend data analysis." },
   { name: "Memory Melody", icon: IoIosMusicalNotes, img_src: "/images/memory-melody.png", link: "https://github.com/travispan75/Memory-Melody", desc: "Nostalgia playlist generator for Spotify. Built using React, OpenAI API, Spotify API, and Auth0." },
   { name: "UW Orbital Design Team", icon: MdSatelliteAlt, img_src: "/images/uw-orbital.png", link: "https://github.com/travispan75/OBC-Firmware-Onboarding", desc: "Temperature override firmware for UW Orbital satellite. Built using C and C++." },
   { name: "Safe Portfolio Generator", icon: RiStockLine, img_src: "/images/safe-portfolio.png", link: "https://github.com/travispan75/Video-Game-Stats-Analyzer", desc: "Low risk portfolio generator that uses yfinance data to determine the optimal weighing. Built using NumPy and pandas." }
