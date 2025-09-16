@@ -29,7 +29,7 @@ export interface ExperienceInfo {
 }
 
 export const experienceInfo: ExperienceInfo[] = [
-  { company: "AlphaSense", title: "Software Engineer", date: "Sep. 2025 - Present", img_src: "/images/alpasense.png" },
+  { company: "AlphaSense", title: "Software Engineer", date: "Sep. 2025 - Present", img_src: "/images/alphasense.png" },
   { company: "Government of Canada PSPC", title: "Software Developer", date: "Dec. 2024 - Present", img_src: "/images/govcan.jpg" },
   { company: "Financial Services Regulatory Authority of Ontario", title: "IT Systems Analyst", date: "May 2024 - Aug. 2024", img_src: "/images/fsra.png" },
   { company: "University of Toronto COBWEB", title: "Junior Software Engineer", date: "Aug. 2022 - Apr. 2023", img_src: "/images/cobweb.jpg"},
