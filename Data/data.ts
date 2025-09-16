@@ -6,6 +6,7 @@ import { TbPokeball } from "react-icons/tb";
 import { IoIosMusicalNotes } from "react-icons/io";
 import { MdSatelliteAlt } from "react-icons/md";
 import { RiStockLine } from "react-icons/ri";
+import { PiDiscoBall } from "react-icons/pi";
 
 export interface HeroInfo {
   name: string;
@@ -30,7 +31,8 @@ export interface ExperienceInfo {
 export const experienceInfo: ExperienceInfo[] = [
   { company: "University of Toronto COBWEB", title: "Junior Software Engineer", date: "Aug. 2022 - Apr. 2023", img_src: "/images/cobweb.jpg"},
   { company: "Financial Services Regulatory Authority of Ontario", title: "IT Systems Analyst", date: "May 2024 - Aug. 2024", img_src: "/images/fsra.png" },
-  { company: "Government of Canada PSPC", title: "Software Developer", date: "Dec. 2024 - Present", img_src: "/images/govcan.jpg" }
+  { company: "Government of Canada PSPC", title: "Software Developer", date: "Dec. 2024 - Present", img_src: "/images/govcan.jpg" },
+  { company: "AlphaSense", title: "Software Engineer", date: "Sep. 2025 - Present", img_src: "/images/alpasense.png" },
 ];
 
 export interface SocialInfo {
@@ -55,6 +57,7 @@ export interface ProjectsInfo {
 }
 
 export const projectsInfo: ProjectsInfo[] = [
+  { name: "LeetDance", icon: PiDiscoBall, img_src: "/images/leetdance.png", link: "https://github.com/travispan75/leetdance", desc: "AI-Powered Dance Choreographer built with OpenCV, MediaPipe, and Gemini." },
   { name: "PokeMetrics", icon: TbPokeball, img_src: "/images/showdown.png", link: "https://github.com/travispan75/Video-Game-Stats-Analyzer", desc: "Player statistics analyzer and visualizer for Pokemon Showdown. Built using MERN stack with Python for backend data analysis." },
   { name: "Memory Melody", icon: IoIosMusicalNotes, img_src: "/images/memory-melody.png", link: "https://github.com/travispan75/Memory-Melody", desc: "Nostalgia playlist generator for Spotify. Built using React, OpenAI API, Spotify API, and Auth0." },
   { name: "UW Orbital Design Team", icon: MdSatelliteAlt, img_src: "/images/uw-orbital.png", link: "https://github.com/travispan75/OBC-Firmware-Onboarding", desc: "Temperature override firmware for UW Orbital satellite. Built using C and C++." },
